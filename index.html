@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Jquery CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
+    {% block title %}
+    <title>Login Page</title>
+    {% endblock %}
+</head>
+
+<body>
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Калькулятор</h1>
+    {% if msg %}
+    <div class="alert alert-success" role="success">
+        {{ msg }}
+    </div>
+    {% endif %}
+    {% for error in errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+
+    <form method="POST">
+        <div class="mb-3">
+            <label for="number1" class="form-label">Первое слагаемое</label>
+            <input type="number1" required class="form-control" name="number1">
+        </div>
+        <div class="mb-3">
+            <label for="number2" class="form-label">Второе слагаемое</label>
+            <input type="number2" required class="form-control" name="number2">
+        </div>
+        <button id='button1 ' type="submit" class="btn btn-primary">Рассчитать сумму</button>
+    </form>
+    {% if result %}
+    <h1 class="text-center">Результат сложения: <p>{{result}}</p></h1>
+    {% endif %}
+    {% if error %}
+    <h1 class="text-center">Произошла ошибка: <p>{{error}}</p></h1>
+    {% endif %}
+</div>
+{% endblock %}
+</body>
+</html>
